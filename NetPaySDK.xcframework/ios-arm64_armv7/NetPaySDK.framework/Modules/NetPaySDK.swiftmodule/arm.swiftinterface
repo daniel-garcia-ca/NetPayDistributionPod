@@ -1,0 +1,1048 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-module-flags: -target armv7-apple-ios8.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name NetPaySDK
+import Foundation
+@_exported import NetPaySDK
+import Swift
+import TMXProfiling
+import TMXProfilingConnections
+import UIKit
+import os.log
+import os
+@available(*, deprecated, renamed: "Token", message: "Use the new `Token` data type instead. This class will be removed in the future released")
+public typealias NetPayToken = NetPaySDK.__NetPayToken
+@available(*, deprecated, message: "Use the completion handler pattern in the `Client` instead. This protocol will be removed in the future released")
+public protocol NetPayTokenRequestDelegate {
+  func tokenRequest(_ request: NetPaySDK.NetPayTokenRequest, didSucceedWithToken token: NetPaySDK.__NetPayToken)
+  func tokenRequest(_ request: NetPaySDK.NetPayTokenRequest, didFailWithError error: Swift.Error)
+}
+@available(*, deprecated, renamed: "RequestResult", message: "Use the new `RequestResult` type. This enum will be removed in the future released")
+public enum NetPayTokenRequestResult {
+  case succeed(token: NetPaySDK.__NetPayToken)
+  case fail(error: Swift.Error)
+}
+@objc @available(*, deprecated, renamed: "Request", message: "Use the new `Request<Token>` type. This class will be removed in the future released")
+public class NetPayTokenRequest : ObjectiveC.NSObject {
+  public typealias Callback = (NetPaySDK.NetPayTokenRequestResult) -> ()
+  @objc public var cardHolderName: Swift.String {
+    @objc get
+  }
+  @objc public var deviceFingerPrint: Swift.String {
+    @objc get
+  }
+  @objc public var cardNumber: Swift.String {
+    @objc get
+  }
+  @objc public var expMonth: Swift.String {
+    @objc get
+  }
+  @objc public var expYear: Swift.String {
+    @objc get
+  }
+  @objc public var cvv2: Swift.String {
+    @objc get
+  }
+  @objc public init(cardHolderName: Swift.String, cardNumber: Swift.String, expMonth: Swift.String, expYear: Swift.String, cvv2: Swift.String, deviceFingerPrint: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol NPSourceRequestDelegate {
+  @objc func sourceRequest(_ request: NetPaySDK.__NPSourceRequest, didSucceedWithSource source: NetPaySDK.__NetPaySource)
+  @objc func sourceRequest(_ request: NetPaySDK.__NPSourceRequest, didFailWithError error: Foundation.NSError)
+}
+@objc(NPSourceRequest) public class __NPSourceRequest : ObjectiveC.NSObject {
+  @objc public var type: Swift.String {
+    @objc get
+  }
+  @objc public var amount: Swift.Int64 {
+    @objc get
+  }
+  @objc public var currency: Swift.String {
+    @objc get
+  }
+  @objc public init(paymentInformation: NetPaySDK.__SourcePaymentInformation, amount: Swift.Int64, currencyCode: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @available(*, deprecated, renamed: "Client", message: "Utiliza `Client`. ")
+public class NetPaySDKClient : ObjectiveC.NSObject {
+  @objc public var publicKey: Swift.String {
+    @objc get
+  }
+  @objc public var testMode: Swift.Bool {
+    @objc get
+  }
+  @objc public var userAgent: Swift.String {
+    @objc get
+  }
+  convenience public init(publicKey: Swift.String, testMode: Swift.Bool)
+  public init(publicKey: Swift.String, testMode: Swift.Bool, queue: Foundation.OperationQueue, session: Foundation.URLSession)
+  public func send(_ request: NetPaySDK.NetPayTokenRequest, callback: NetPaySDK.NetPayTokenRequest.Callback?)
+  public func send(_ request: NetPaySDK.NetPayTokenRequest, delegate: NetPaySDK.NetPayTokenRequestDelegate?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(*, deprecated, renamed: "NetPayTextField", message: "Use the new `NPNetPayTextField` data type instead. This class will be removed in the future released")
+@objc(NetPayTextField) public class __NetPayTextField : NetPaySDK.NetPayTextField {
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @available(*, deprecated, renamed: "CardCVVTextField", message: "Use the new `NPCardCVVTextField` data type instead. This class will be removed in the future released")
+@objc(CardCVVTextField) public class __CardCVVTextField : NetPaySDK.CardCVVTextField {
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @available(*, deprecated, renamed: "CardExpiryDatePicker", message: "Use the new `NPCardExpiryDatePicker` data type instead. This class will be removed in the future released")
+@objc(CardExpiryDatePicker) public class __CardExpiryDatePicker : NetPaySDK.CardExpiryDatePicker {
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @available(*, deprecated, renamed: "CardExpiryDateTextField", message: "Use the new `NPCardExpiryDateTextField` data type instead. This class will be removed in the future released")
+@objc(CardExpiryDateTextField) public class __CardExpiryDateTextField : NetPaySDK.CardExpiryDateTextField {
+  @objc override dynamic public init()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(*, deprecated, renamed: "CardNumberTextField", message: "Use the new `NPCardNumberTextField` data type instead. This class will be removed in the future released")
+@objc(CardNumberTextField) public class __CardNumberTextField : NetPaySDK.CardNumberTextField {
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(*, deprecated, renamed: "CardNameTextField", message: "Use the new `NPCardNameTextField` data type instead. This class will be removed in the future released")
+@objc(CardNameTextField) public class __CardNameTextField : NetPaySDK.CardNameTextField {
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public struct PAN {
+  public var isValid: Swift.Bool {
+    get
+  }
+  public var cardNumber: Swift.String {
+    get
+  }
+  public var brand: NetPaySDK.CardBrand? {
+    get
+  }
+  public var suggestedSpaceFormattedIndexes: Foundation.IndexSet {
+    get
+  }
+  public var lastDigits: Swift.String {
+    get
+  }
+  public init(_ pan: Swift.String)
+  public static func suggestedSpaceFormattedIndexesForPANPrefix(_ panPrefix: Swift.String) -> Foundation.IndexSet
+}
+extension PAN : Swift.CustomDebugStringConvertible, Swift.CustomStringConvertible {
+  public var debugDescription: Swift.String {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+}
+public let NetPayErrorDomain: Swift.String
+public enum ErrorUserInfoKey : Swift.String, Swift.CodingKey {
+  case location
+  case code
+  case message
+  public init?(rawValue: Swift.String)
+  public init?(stringValue: Swift.String)
+  public init?(intValue: Swift.Int)
+  public typealias RawValue = Swift.String
+  public var intValue: Swift.Int? {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+  public var stringValue: Swift.String {
+    get
+  }
+}
+public enum NetPayError : Foundation.CustomNSError, Foundation.LocalizedError, Swift.Decodable {
+  public static let errorDomain: Swift.String
+  case api(code: NetPaySDK.NetPayError.APIErrorCode, message: Swift.String, location: Swift.String)
+  case unexpected(error: NetPaySDK.NetPayError.UnexpectedError, underlying: Swift.Error?)
+  public enum APIErrorCode {
+    case invalidCard([NetPaySDK.NetPayError.APIErrorCode.InvalidCardReason])
+    case badRequest([NetPaySDK.NetPayError.APIErrorCode.BadRequestReason])
+    case authenticationFailure
+    case serviceNotFound
+    case other(Swift.String)
+    public enum InvalidCardReason : Swift.Hashable {
+      case invalidCardNumber
+      case invalidExpirationDate
+      case emptyCardHolderName
+      case unsupportedBrand
+      case other(Swift.String)
+      public func hash(into hasher: inout Swift.Hasher)
+      public static func == (a: NetPaySDK.NetPayError.APIErrorCode.InvalidCardReason, b: NetPaySDK.NetPayError.APIErrorCode.InvalidCardReason) -> Swift.Bool
+      public var hashValue: Swift.Int {
+        get
+      }
+    }
+    public enum BadRequestReason : Swift.Hashable {
+      case amountIsLessThanValidAmount(validAmount: Swift.Int64?, currency: NetPaySDK.Currency?)
+      case amountIsGreaterThanValidAmount(validAmount: Swift.Int64?, currency: NetPaySDK.Currency?)
+      case invalidCurrency
+      case emptyName
+      case nameIsTooLong(maximum: Swift.Int?)
+      case invalidName
+      case invalidEmail
+      case invalidPhoneNumber
+      case typeNotSupported
+      case currencyNotSupported
+      case other(Swift.String)
+      public func hash(into hasher: inout Swift.Hasher)
+      public static func == (a: NetPaySDK.NetPayError.APIErrorCode.BadRequestReason, b: NetPaySDK.NetPayError.APIErrorCode.BadRequestReason) -> Swift.Bool
+      public var hashValue: Swift.Int {
+        get
+      }
+    }
+  }
+  public enum UnexpectedError {
+    case noErrorNorResponse
+    case httpErrorWithNoData
+    case httpErrorResponseWithInvalidData
+    case httpSucceessWithNoData
+    case httpSucceessWithInvalidData
+    case unrecognizedHTTPStatusCode(code: Swift.Int)
+    case other(Swift.String)
+  }
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public var recoverySuggestion: Swift.String? {
+    get
+  }
+  public var errorUserInfo: [Swift.String : Any] {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+extension NetPayError.APIErrorCode : Swift.Decodable {
+  public init(from decoder: Swift.Decoder) throws
+}
+extension NetPayError.APIErrorCode.InvalidCardReason : Swift.Decodable {
+  public init(from decoder: Swift.Decoder) throws
+}
+extension NetPayError.APIErrorCode.BadRequestReason : Swift.Decodable {
+  public init(from decoder: Swift.Decoder) throws
+}
+extension UIColor {
+  public static let background: UIKit.UIColor
+  public static let formAccessoryBarTintColor: UIKit.UIColor
+  public static let selectedCellBackgroundColor: UIKit.UIColor
+  public static let badgeBackground: UIKit.UIColor
+  public static let body: UIKit.UIColor
+  public static let description: UIKit.UIColor
+  public static let emptyPage: UIKit.UIColor
+  public static let error: UIKit.UIColor
+  public static let errorHighlighed: UIKit.UIColor
+  public static let headings: UIKit.UIColor
+  public static let line: UIKit.UIColor
+  public static let netpay: UIKit.UIColor
+  public static let netpayHighlighted: UIKit.UIColor
+  public static let pending: UIKit.UIColor
+  public static let placeholder: UIKit.UIColor
+  public static let refund: UIKit.UIColor
+  public static let success: UIKit.UIColor
+}
+public struct Source : NetPaySDK.CreatableObject {
+  public typealias CreateParameter = NetPaySDK.CreateSourceParameter
+  public static let sandboxPostURL: Foundation.URL
+  public static let livePostURL: Foundation.URL
+  public let object: Swift.String
+  public let id: Swift.String
+  public let paymentInformation: NetPaySDK.PaymentInformation
+  public let flow: NetPaySDK.Flow
+  public let amount: Swift.Int64
+  public let currency: NetPaySDK.Currency
+  public let token: Swift.String
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct CreateSourceParameter : Swift.Encodable {
+  public let paymentInformation: NetPaySDK.PaymentInformation
+  public let amount: Swift.Int64
+  public let currency: NetPaySDK.Currency
+  public init(paymentInformation: NetPaySDK.PaymentInformation, amount: Swift.Int64, currency: NetPaySDK.Currency)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public enum Flow : Swift.RawRepresentable, Swift.Decodable, Swift.Equatable {
+  case redirect
+  case offline
+  case other(Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+  public init?(rawValue: Swift.String)
+}
+public enum TextFieldStyle {
+  case plain
+  case border(width: CoreGraphics.CGFloat)
+}
+public enum NetPayTextFieldValidationError : Swift.Error {
+  case emptyText
+  case invalidData
+  public static func == (a: NetPaySDK.NetPayTextFieldValidationError, b: NetPaySDK.NetPayTextFieldValidationError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(NPNetPayTextField) @IBDesignable public class NetPayTextField : UIKit.UITextField {
+  public var style: NetPaySDK.TextFieldStyle {
+    get
+    set
+  }
+  @objc override dynamic public var placeholder: Swift.String? {
+    @objc get
+    @objc set
+  }
+  public var isValid: Swift.Bool {
+    get
+  }
+  @objc override dynamic public var text: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public var textColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc public func validate() throws
+  @objc override dynamic public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @objc deinit
+}
+extension NetPayTextField {
+  @objc override dynamic public func borderRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @objc override dynamic public func textRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @objc override dynamic open func editingRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @objc override dynamic open func clearButtonRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @objc override dynamic public func rightViewRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @objc override dynamic public func leftViewRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+}
+@_hasMissingDesignatedInitializers @objc(NPToken) public class __NetPayToken : ObjectiveC.NSObject {
+  @available(*, deprecated, message: "Utiliza `__NetPayToken.tokenID`")
+  @objc public var lastFourDigits: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var brand: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var bank: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var type: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var country: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var scheme: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+public protocol CreditCardFormViewControllerDelegate : AnyObject {
+  func creditCardFormViewController(_ controller: NetPaySDK.CreditCardFormViewController, didSucceedWithToken token: NetPaySDK.Token)
+  func creditCardFormViewController(_ controller: NetPaySDK.CreditCardFormViewController, didFailWithError error: Swift.Error)
+  func creditCardFormViewControllerDidCancel(_ controller: NetPaySDK.CreditCardFormViewController)
+}
+@available(*, deprecated, renamed: "CreditCardFormViewControllerDelegate")
+public typealias CreditCardFormControllerDelegate = NetPaySDK.CreditCardFormViewControllerDelegate
+@available(*, unavailable, renamed: "CreditCardFormViewControllerDelegate")
+public protocol CreditCardFormDelegate : NetPaySDK.CreditCardFormViewControllerDelegate {
+  @available(*, deprecated, renamed: "CreditCardFormViewControllerDelegate.creditCardFormViewController(_:didSucceedWithToken:)")
+  func creditCardForm(_ controller: NetPaySDK.CreditCardFormController, didSucceedWithToken token: NetPaySDK.Token)
+  @available(*, deprecated, renamed: "CreditCardFormViewControllerDelegate.creditCardFormViewController(_:didFailWithError:)")
+  func creditCardForm(_ controller: NetPaySDK.CreditCardFormController, didFailWithError error: Swift.Error)
+}
+@available(*, deprecated, renamed: "NPCreditCardFormViewControllerDelegate", message: "This delegate name is deprecated. Please use the new name of `NPCreditCardFormViewControllerDelegate`")
+@objc public protocol NPCreditCardFormDelegate : NetPaySDK.NPCreditCardFormViewControllerDelegate {
+}
+@objc public protocol NPCreditCardFormViewControllerDelegate {
+  @objc func creditCardFormViewController(_ controller: NetPaySDK.CreditCardFormViewController, didSucceedWithToken token: NetPaySDK.__NetPayToken)
+  @objc func creditCardFormViewController(_ controller: NetPaySDK.CreditCardFormViewController, didFailWithError error: Foundation.NSError)
+  @objc optional func creditCardFormViewControllerDidCancel(_ controller: NetPaySDK.CreditCardFormViewController)
+  @available(*, unavailable, renamed: "creditCardFormViewController(_:didSucceedWithToken:)", message: "Implement the new -[NPCreditCardFormViewControllerDelegate creditCardFormViewController:didSucceedWithToken:] instead")
+  @objc func creditCardForm(_ controller: NetPaySDK.CreditCardFormViewController, didSucceedWithToken token: NetPaySDK.__NetPayToken)
+  @available(*, unavailable, renamed: "creditCardFormViewController(_:didFailWithError:)", message: "Implement the new -[NPCreditCardFormViewControllerDelegate creditCardFormViewController:didFailWithError:] instead")
+  @objc func creditCardForm(_ controller: NetPaySDK.CreditCardFormViewController, didFailWithError error: Foundation.NSError)
+}
+@available(*, deprecated, renamed: "CreditCardFormViewController")
+public typealias CreditCardFormController = NetPaySDK.CreditCardFormViewController
+@_inheritsConvenienceInitializers @objc(NPCreditCardFormViewController) public class CreditCardFormViewController : UIKit.UIViewController, NetPaySDK.PaymentChooserUI {
+  @objc public var publicKey: Swift.String?
+  @objc public var testMode: Swift.Bool
+  weak public var delegate: NetPaySDK.CreditCardFormViewControllerDelegate?
+  @objc(delegate) weak public var __delegate: NetPaySDK.NPCreditCardFormViewControllerDelegate?
+  @objc public var handleErrors: Swift.Bool
+  @IBInspectable @objc public var preferredPrimaryColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @IBInspectable @objc public var preferredSecondaryColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @IBInspectable @objc public var errorMessageTextColor: UIKit.UIColor! {
+    @objc get
+    @objc set
+  }
+  @objc public static let defaultErrorMessageTextColor: UIKit.UIColor
+  @available(*, unavailable, message: "Built in support for Card.ios was removed. You can implement it in your app and call the setCreditCardInformation(number:name:expiration:) method")
+  @objc public var cardIOEnabled: Swift.Bool
+  @objc(creditCardFormViewControllerWithPublicKey:testMode:) public static func makeCreditCardFormViewController(withPublicKey publicKey: Swift.String, testMode: Swift.Bool) -> NetPaySDK.CreditCardFormViewController
+  @available(*, deprecated, renamed: "makeCreditCardFormViewController(withPublicKey:)", message: "Please use the new method that confrom to Objective-C convention +[NPCreditCardFormViewController creditCardFormViewControllerWithPublicKey:] as of this method will be removed in the future release.")
+  @objc(makeCreditCardFormWithPublicKey:testMode:) public static func __makeCreditCardForm(withPublicKey publicKey: Swift.String, testMode: Swift.Bool) -> NetPaySDK.CreditCardFormViewController
+  public func setCreditCardInformationWith(number: Swift.String?, name: Swift.String?, expiration: (month: Swift.Int, year: Swift.Int)?)
+  @objc(setCreditCardInformationWithNumber:name:expMonth:expirationYear:) public func __setCreditCardInformation(number: Swift.String, name: Swift.String, expMonth: Swift.Int, expirationYear: Swift.Int)
+  @objc override dynamic public func loadView()
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewWillLayoutSubviews()
+  @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewDidDisappear(_ animated: Swift.Bool)
+  @objc override dynamic public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension CreditCardFormViewController {
+  @objc override dynamic public func accessibilityPerformMagicTap() -> Swift.Bool
+  @objc override dynamic public func accessibilityPerformEscape() -> Swift.Bool
+}
+@_hasMissingDesignatedInitializers @objc(NPCard) public class __NetPayCard : ObjectiveC.NSObject {
+  @objc public var lastFourDigits: Swift.String? {
+    @objc get
+  }
+  @objc public var brand: Swift.String? {
+    @objc get
+  }
+  @objc public var bank: Swift.String? {
+    @objc get
+  }
+  @objc public var type: Swift.String? {
+    @objc get
+  }
+  @objc public var country: Swift.String? {
+    @objc get
+  }
+  @objc public var expMonth: Swift.String? {
+    @objc get
+  }
+  @objc public var expYear: Swift.String? {
+    @objc get
+  }
+  @objc public var scheme: Swift.String? {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+public struct Capability : NetPaySDK.Object {
+  public let location: Swift.String
+  public let supportedBanks: Swift.Set<Swift.String>
+  public let supportedBackends: [NetPaySDK.Capability.Backend]
+  public var creditCardBackend: NetPaySDK.Capability.Backend? {
+    get
+  }
+  public subscript(type: NetPaySDK.NPSourceTypeValue) -> NetPaySDK.Capability.Backend? {
+    get
+  }
+}
+extension Capability {
+  public static func ~= (lhs: NetPaySDK.Capability, rhs: NetPaySDK.CreateSourceParameter) -> Swift.Bool
+}
+extension Capability {
+  public struct Backend : Swift.Codable, Swift.Equatable {
+    public let payment: NetPaySDK.Capability.Backend.Payment
+    public let supportedCurrencies: Swift.Set<NetPaySDK.Currency>
+    public enum Payment : Swift.Equatable {
+      case card(Swift.Set<NetPaySDK.CardBrand>)
+      case unknownSource(Swift.String, configurations: [Swift.String : Any])
+    }
+    public static func == (a: NetPaySDK.Capability.Backend, b: NetPaySDK.Capability.Backend) -> Swift.Bool
+  }
+}
+extension Capability : Swift.Codable {
+}
+extension Capability.Backend.Payment {
+  public static func == (lhs: NetPaySDK.Capability.Backend.Payment, rhs: NetPaySDK.Capability.Backend.Payment) -> Swift.Bool
+}
+extension Capability {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension Capability.Backend {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@_hasMissingDesignatedInitializers public class RequestTask<T> where T : NetPaySDK.CreatableObject {
+  final public let request: NetPaySDK.Request<T>
+  public func resume()
+  @objc deinit
+}
+public typealias StaticElementIterable = Swift.CaseIterable
+@_inheritsConvenienceInitializers public class AdaptableStaticTableViewController<Element> : UIKit.UITableViewController where Element : Swift.CaseIterable, Element : Swift.Equatable {
+  public var showingValues: [Element] {
+    get
+    set
+  }
+  @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc override dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  public func calculateStaticIndexPath(fromUIIndexPath indexPath: Foundation.IndexPath) -> Foundation.IndexPath
+  public func staticIndexPath(forValue value: Element) -> Foundation.IndexPath
+  public func element(forUIIndexPath indexPath: Foundation.IndexPath) -> Element
+  @objc override dynamic public init(style: UIKit.UITableView.Style)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc public protocol NPTokenRequestDelegate {
+  @objc func tokenRequest(_ request: NetPaySDK.__NPTokenRequest, didSucceedWithToken token: NetPaySDK.__NetPayToken)
+  @objc func tokenRequest(_ request: NetPaySDK.__NPTokenRequest, didFailWithError error: Foundation.NSError)
+}
+@objc(NPTokenRequest) public class __NPTokenRequest : ObjectiveC.NSObject {
+  @objc public var cardHolderName: Swift.String {
+    @objc get
+  }
+  @objc public var cardNumber: Swift.String {
+    @objc get
+  }
+  @objc public var expMonth: Swift.String {
+    @objc get
+  }
+  @objc public var expYear: Swift.String {
+    @objc get
+  }
+  @objc public var cvv2: Swift.String {
+    @objc get
+  }
+  @objc public init(cardHolderName: Swift.String, cardNumber: Swift.String, expMonth: Swift.String, expYear: Swift.String, cvv2: Swift.String, deviceFingerPrint: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NPCardExpiryDateTextField) @IBDesignable public class CardExpiryDateTextField : NetPaySDK.NetPayTextField {
+  public var selectedMonth: Swift.Int? {
+    get
+  }
+  @objc(selectedMonth) public var __selectedMonth: Swift.Int {
+    @objc get
+  }
+  public var selectedYear: Swift.Int? {
+    get
+  }
+  @objc(selectedYear) public var __selectedYear: Swift.Int {
+    @objc get
+  }
+  public var dateSeparatorTextColor: UIKit.UIColor?
+  @objc public var expirationMonthAccessibilityElement: NetPaySDK.CardExpiryDateTextField.InfoAccessibilityElement! {
+    get
+  }
+  @objc public var expirationYearAccessibilityElement: NetPaySDK.CardExpiryDateTextField.InfoAccessibilityElement! {
+    get
+  }
+  @objc override dynamic public var keyboardType: UIKit.UIKeyboardType {
+    @objc get
+    @objc set
+  }
+  @available(iOS, unavailable)
+  @objc override dynamic public var delegate: UIKit.UITextFieldDelegate? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public init()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public var accessibilityElements: [Any]? {
+    @objc get
+    @objc set
+  }
+  @objc override public func validate() throws
+  @objc override dynamic public func deleteBackward()
+  @objc override dynamic public func replace(_ range: UIKit.UITextRange, withText text: Swift.String)
+  @objc override dynamic public func paste(_ sender: Any?)
+  @objc override dynamic public func layoutSubviews()
+  @objc deinit
+}
+extension CardExpiryDateTextField {
+  @objc @_hasMissingDesignatedInitializers public class InfoAccessibilityElement : UIKit.UIAccessibilityElement {
+    @objc override dynamic public func accessibilityIncrement()
+    @objc override dynamic public func accessibilityDecrement()
+    @objc override dynamic public init(accessibilityContainer container: Any)
+    @objc override dynamic public init()
+    @objc deinit
+  }
+}
+extension CardExpiryDateTextField : UIKit.UITextFieldDelegate {
+  @objc dynamic public func textField(_ textField: UIKit.UITextField, shouldChangeCharactersIn range: Foundation.NSRange, replacementString string: Swift.String) -> Swift.Bool
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(NPCardNameTextField) @IBDesignable public class CardNameTextField : NetPaySDK.NetPayTextField {
+  override public var isValid: Swift.Bool {
+    get
+  }
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+extension Client {
+  @available(*, deprecated, renamed: "init(publicKey:queue:)")
+  @objc convenience dynamic public init(publicKey: Swift.String, queue: Foundation.OperationQueue, session: Foundation.URLSession, testMode: Swift.Bool)
+  @objc(sendTokenRequest:callback:) dynamic public func __sendRequest(_ request: NetPaySDK.__NPTokenRequest, callback: ((NetPaySDK.__NetPayToken?, Foundation.NSError?) -> ())?)
+  @objc(sendTokenRequest:delegate:) dynamic public func __sendRequest(_ request: NetPaySDK.__NPTokenRequest, delegate: NetPaySDK.NPTokenRequestDelegate?)
+  @available(*, deprecated, renamed: "sendTokenRequest(_:completionHandler:)", message: "Please use the new -[NPClient sendTokenRequest:callback:] method")
+  @objc(sendRequest:callback:) dynamic public func ___sendRequest(_ request: NetPaySDK.__NPTokenRequest, callback: ((NetPaySDK.__NetPayToken?, Foundation.NSError?) -> ())?)
+  @available(*, deprecated, renamed: "sendTokenRequest(_:completionHandler:)", message: "Please use the new -[NPClient sendTokenRequest:callback:] method")
+  @objc(sendRequest:delegate:) dynamic public func ___sendRequest(_ request: NetPaySDK.__NPTokenRequest, delegate: NetPaySDK.NPTokenRequestDelegate?)
+  @objc(sendSourceRequest:callback:) dynamic public func __sendRequest(_ request: NetPaySDK.__NPSourceRequest, callback: ((NetPaySDK.__NetPaySource?, Foundation.NSError?) -> ())?)
+  @objc(sendSourceRequest:delegate:) dynamic public func __sendRequest(_ request: NetPaySDK.__NPSourceRequest, delegate: NetPaySDK.NPSourceRequestDelegate?)
+  @objc(capabilityDataWithCompletionHandler:) dynamic public func __capabilityDataWithCompletionHandler(_ completionHandler: ((NetPaySDK.__NetPayCapability?, Foundation.NSError?) -> Swift.Void)?)
+}
+public typealias RequestResult<T> = Swift.Result<T, Swift.Error> where T : NetPaySDK.Object
+public struct Request<T> where T : NetPaySDK.CreatableObject {
+  public typealias Callback = (NetPaySDK.RequestResult<T>) -> Swift.Void
+  public let parameter: T.CreateParameter
+  public init(parameter: T.CreateParameter)
+}
+@_inheritsConvenienceInitializers @objc(NPCardExpiryDatePicker) public class CardExpiryDatePicker : UIKit.UIPickerView {
+  public var onDateSelected: ((Swift.Int, Swift.Int) -> ())?
+  public var month: Swift.Int
+  public var year: Swift.Int
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+extension CardExpiryDatePicker : UIKit.UIPickerViewDataSource {
+  @objc dynamic public func numberOfComponents(in pickerView: UIKit.UIPickerView) -> Swift.Int
+  @objc dynamic public func pickerView(_ pickerView: UIKit.UIPickerView, numberOfRowsInComponent component: Swift.Int) -> Swift.Int
+}
+extension CardExpiryDatePicker : UIKit.UIPickerViewDelegate {
+  @objc dynamic public func pickerView(_ pickerView: UIKit.UIPickerView, titleForRow row: Swift.Int, forComponent component: Swift.Int) -> Swift.String?
+  @objc dynamic public func pickerView(_ pickerView: UIKit.UIPickerView, didSelectRow row: Swift.Int, inComponent component: Swift.Int)
+}
+@_hasMissingDesignatedInitializers @objc(NPSource) public class __NetPaySource : ObjectiveC.NSObject {
+  @objc public var object: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc public var sourcdID: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc public var type: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc public var paymentInformation: NetPaySDK.__SourcePaymentInformation {
+    @objc get
+    @objc set
+  }
+  @objc public var flow: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc public var amount: Swift.Int64 {
+    @objc get
+    @objc set
+  }
+  @objc public var currencyCode: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(NPPaymentInformation) @objcMembers public class __SourcePaymentInformation : ObjectiveC.NSObject {
+  @objc final public let type: NetPaySDK.NPSourceTypeValue
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(NPBarcodePaymentInformation) @objcMembers public class __SourceBarcodePayment : NetPaySDK.__SourcePaymentInformation {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(NPCustomBarcodePaymentInformation) @objcMembers public class __SourceCustomBarcodePayment : NetPaySDK.__SourceBarcodePayment {
+  @objc public init(customType: Swift.String, parameters: [Swift.String : Any])
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(NPCustomPaymentInformation) @objcMembers public class __CustomSourcePayment : NetPaySDK.__SourcePaymentInformation {
+  @objc final public let parameters: [Swift.String : Any]
+  @objc public init(customType: Swift.String, parameters: [Swift.String : Any])
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NPCardCVVTextField) @IBDesignable public class CardCVVTextField : NetPaySDK.NetPayTextField {
+  @available(iOS, unavailable)
+  @objc override dynamic public var delegate: UIKit.UITextFieldDelegate? {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public var keyboardType: UIKit.UIKeyboardType {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc dynamic public init()
+  @objc override public func validate() throws
+  @objc deinit
+}
+extension CardCVVTextField : UIKit.UITextFieldDelegate {
+  @objc dynamic public func textField(_ textField: UIKit.UITextField, shouldChangeCharactersIn range: Foundation.NSRange, replacementString string: Swift.String) -> Swift.Bool
+}
+public struct CreateTokenParameter : Swift.Encodable {
+  public let cardHolderName: Swift.String
+  public let deviceFingerPrint: Swift.String
+  public let pan: NetPaySDK.PAN
+  public let cardNumber: Swift.String?
+  public let expMonth: Swift.String
+  public let expYear: Swift.String
+  public let cvv2: Swift.String
+  public init(cardHolderName: Swift.String, pan: NetPaySDK.PAN, expMonth: Swift.String, expYear: Swift.String, cvv2: Swift.String, deviceFingerPrint: Swift.String)
+  public init(cardHolderName: Swift.String, cardNumber: Swift.String, expMonth: Swift.String, expYear: Swift.String, cvv2: Swift.String, deviceFingerPrint: Swift.String)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct Token : NetPaySDK.CreatableObject {
+  public typealias CreateParameter = NetPaySDK.CreateTokenParameter
+  public static let sandboxPostURL: Foundation.URL
+  public static let livePostURL: Foundation.URL
+  public let token: Swift.String
+  public let lastFourDigits: Swift.String
+  public let brand: Swift.String
+  public let bank: Swift.String
+  public let type: Swift.String
+  public let country: Swift.String
+  public let scheme: Swift.String
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Card : Swift.Decodable {
+  public let brand: Swift.String?
+  public let expMonth: Swift.String?
+  public let expYear: Swift.String?
+  public let cardNumber: Swift.String?
+  public let cardHolderName: Swift.String?
+  public let deviceFingerPrint: Swift.String?
+  public let cvv2: Swift.String?
+  public let lastFourDigits: Swift.String?
+  public let bank: Swift.String?
+  public let type: Swift.String?
+  public let country: Swift.String?
+  public let scheme: Swift.String?
+  public let token: Swift.String
+  public init(from decoder: Swift.Decoder) throws
+}
+extension Calendar {
+  public static let creditCardInformationCalendar: Foundation.Calendar
+  public static let validExpirationMonthRange: Swift.Range<Swift.Int>
+}
+extension NSCalendar {
+  @objc(creditCardInformationCalendar) public static var __creditCardInformationCalendar: Foundation.Calendar {
+    @objc get
+  }
+}
+extension Request where T == NetPaySDK.Token {
+  public init(cardHolderName: Swift.String, pan: NetPaySDK.PAN, expMonth: Swift.String, expYear: Swift.String, cvv2: Swift.String, deviceFingerPrint: Swift.String)
+  public init(cardHolderName: Swift.String, cardNumber: Swift.String, expMonth: Swift.String, expYear: Swift.String, cvv2: Swift.String, deviceFingerPrint: Swift.String)
+}
+extension Optional where Wrapped == Swift.String {
+  public var isNilOrEmpty: Swift.Bool {
+    get
+  }
+}
+extension UIControl.State : Swift.Hashable {
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Bundle {
+  public static let netpaySDKBundle: Foundation.Bundle
+}
+@_hasMissingDesignatedInitializers @objc(NPCapability) public class __NetPayCapability : ObjectiveC.NSObject {
+  @objc public var location: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc public var supportedBanks: Swift.Set<Swift.String> {
+    @objc get
+    @objc set
+  }
+  @objc public var supportedBackends: [NetPaySDK.__NetPayCapabilityBackend] {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(NPCapabilityBackend) public class __NetPayCapabilityBackend : ObjectiveC.NSObject {
+  @objc public var payment: NetPaySDK.__NetPayCapabilityBackendPayment {
+    @objc get
+    @objc set
+  }
+  @objc public var supportedCurrencyCodes: Swift.Set<Swift.String> {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NPCapabilityBackendPayment) public class __NetPayCapabilityBackendPayment : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(NPCapabilityCardBackend) public class __NetPayCapabilityCardBackendPayment : NetPaySDK.__NetPayCapabilityBackendPayment {
+  @objc final public let supportedBrands: Swift.Set<Swift.String>
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(NPCapabilitySourceBackend) public class __NetPayCapabilitySourceBackendPayment : NetPaySDK.__NetPayCapabilityBackendPayment {
+  @objc final public let type: NetPaySDK.NPSourceTypeValue
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(NPCapabilityInstallmentBackend) public class __NetPayCapabilityInstallmentBackendPayment : NetPaySDK.__NetPayCapabilitySourceBackendPayment {
+  @objc final public let availableNumberOfTerms: Foundation.IndexSet
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(NPCapabilityUnknownSourceBackend) public class __NetPayCapabilityUnknownSourceBackendPayment : NetPaySDK.__NetPayCapabilitySourceBackendPayment {
+  @objc final public let parameters: [Swift.String : Any]
+  @objc deinit
+}
+public let centBasedCurrencyFactor: Swift.Int
+public let identicalBasedCurrencyFactor: Swift.Int
+public enum Currency : Swift.Codable, Swift.Hashable {
+  case mxn
+  case custom(code: Swift.String, factor: Swift.Int)
+  public var code: Swift.String {
+    get
+  }
+  public var factor: Swift.Int {
+    get
+  }
+  public init(code: Swift.String)
+  public func convert(fromSubunit value: Swift.Int64) -> Swift.Double
+  public func convert(toSubunit value: Swift.Double) -> Swift.Int64
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: NetPaySDK.Currency, b: NetPaySDK.Currency) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Currency {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public protocol PaymentCreatorControllerDelegate : ObjectiveC.NSObjectProtocol {
+  func paymentCreatorController(_ paymentCreatorController: NetPaySDK.PaymentCreatorController, didCreatePayment payment: NetPaySDK.Payment)
+  func paymentCreatorController(_ paymentCreatorController: NetPaySDK.PaymentCreatorController, didFailWithError error: Swift.Error)
+  func paymentCreatorControllerDidCancel(_ paymentCreatorController: NetPaySDK.PaymentCreatorController)
+}
+@objc public protocol NPPaymentCreatorControllerDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func paymentCreatorController(_ paymentCreatorController: NetPaySDK.PaymentCreatorController, didCreateToken token: NetPaySDK.__NetPayToken)
+  @objc func paymentCreatorController(_ paymentCreatorController: NetPaySDK.PaymentCreatorController, didCreateSource source: NetPaySDK.__NetPaySource)
+  @objc func paymentCreatorController(_ paymentCreatorController: NetPaySDK.PaymentCreatorController, didFailWithError error: Swift.Error)
+  @objc optional func paymentCreatorControllerDidCancel(_ paymentCreatorController: NetPaySDK.PaymentCreatorController)
+}
+public enum Payment {
+  case token(NetPaySDK.Token)
+  case source(NetPaySDK.Source)
+}
+public protocol PaymentChooserUI : AnyObject {
+  var preferredPrimaryColor: UIKit.UIColor? { get set }
+  var preferredSecondaryColor: UIKit.UIColor? { get set }
+}
+@_inheritsConvenienceInitializers @objc(NPPaymentCreatorController) public class PaymentCreatorController : UIKit.UINavigationController {
+  @objc public var publicKey: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var testMode: Swift.Bool
+  public var paymentAmount: Swift.Int64? {
+    get
+    set
+  }
+  public var paymentCurrency: NetPaySDK.Currency? {
+    get
+    set
+  }
+  @objc(paymentAmount) public var __paymentAmount: Swift.Int64 {
+    @objc get
+    @objc set
+  }
+  @objc(paymentCurrencyCode) public var __paymentCurrencyCode: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var showsCreditCardPayment: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var allowedPaymentMethods: [NetPaySDK.NPSourceTypeValue] {
+    @objc get
+    @objc set
+  }
+  @objc public var handleErrors: Swift.Bool
+  weak public var paymentDelegate: NetPaySDK.PaymentCreatorControllerDelegate?
+  @objc(paymentDelegate) weak public var __paymentDelegate: NetPaySDK.NPPaymentCreatorControllerDelegate?
+  @objc @IBInspectable public var preferredPrimaryColor: UIKit.UIColor?
+  @objc @IBInspectable public var preferredSecondaryColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  public static func makePaymentCreatorControllerWith(publicKey: Swift.String, amount: Swift.Int64, currency: NetPaySDK.Currency, allowedPaymentMethods: [NetPaySDK.NPSourceTypeValue], paymentDelegate: NetPaySDK.PaymentCreatorControllerDelegate?, testMode: Swift.Bool) -> NetPaySDK.PaymentCreatorController
+  @objc(paymentCreatorControllerWithPublicKey:amount:currency:allowedPaymentMethods:paymentDelegate:testMode:) public static func __makePaymentCreatorViewControllerWith(publicKey: Swift.String, amount: Swift.Int64, currencyCode: Swift.String, allowedPaymentMethods: [NetPaySDK.NPSourceTypeValue], paymentDelegate: NetPaySDK.NPPaymentCreatorControllerDelegate, testMode: Swift.Bool) -> NetPaySDK.PaymentCreatorController
+  @objc dynamic public init()
+  @available(iOS, unavailable)
+  @objc override dynamic public init(rootViewController: UIKit.UIViewController)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc override dynamic public init(navigationBarClass: Swift.AnyClass?, toolbarClass: Swift.AnyClass?)
+  @objc override dynamic public var viewControllers: [UIKit.UIViewController] {
+    @objc get
+    @objc set
+  }
+  public func applyPaymentMethods(from capability: NetPaySDK.Capability)
+  @objc(applyPaymentMethodsFrom:) public func __applyPaymentMethods(from capability: NetPaySDK.__NetPayCapability)
+  @objc dynamic public func displayErrorWith(title: Swift.String, message: Swift.String?, animated: Swift.Bool, sender: Any?)
+  @objc override dynamic public func pushViewController(_ viewController: UIKit.UIViewController, animated: Swift.Bool)
+  @objc override dynamic public func addChild(_ childController: UIKit.UIViewController)
+  @objc override dynamic public func loadView()
+  @objc override dynamic public func viewWillTransition(to size: CoreGraphics.CGSize, with coordinator: UIKit.UIViewControllerTransitionCoordinator)
+  @objc deinit
+}
+extension PaymentCreatorController {
+  public static let mexicanDefaultAvailableSourceMethods: [NetPaySDK.NPSourceTypeValue]
+}
+public protocol Object : Swift.Decodable {
+}
+public protocol CreatableObject : NetPaySDK.Object {
+  associatedtype CreateParameter : Swift.Encodable
+  static var sandboxPostURL: Foundation.URL { get }
+  static var livePostURL: Foundation.URL { get }
+  var token: Swift.String { get }
+}
+@objc(NPSDKClient) public class Client : ObjectiveC.NSObject {
+  @objc public init(publicKey: Swift.String, testMode: Swift.Bool, queue: Foundation.OperationQueue)
+  @objc convenience public init(publicKey: Swift.String, testMode: Swift.Bool)
+  public func requestTask<T>(with request: NetPaySDK.Request<T>, completionHandler: NetPaySDK.Request<T>.Callback?) -> NetPaySDK.RequestTask<T> where T : NetPaySDK.CreatableObject
+  @discardableResult
+  public func send<T>(_ request: NetPaySDK.Request<T>, completionHandler: NetPaySDK.Request<T>.Callback?) -> NetPaySDK.RequestTask<T> where T : NetPaySDK.CreatableObject
+  public func capabilityDataWithCompletionHandler(_ completionHandler: ((NetPaySDK.RequestResult<NetPaySDK.Capability>) -> Swift.Void)?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(NPCardNumberTextField) @IBDesignable public class CardNumberTextField : NetPaySDK.NetPayTextField {
+  public var pan: NetPaySDK.PAN {
+    get
+  }
+  public var cardBrand: NetPaySDK.CardBrand? {
+    get
+  }
+  @objc override dynamic public var tokenizer: UIKit.UITextInputTokenizer {
+    @objc get
+  }
+  @objc override dynamic public var selectedTextRange: UIKit.UITextRange? {
+    @objc get
+    @objc set
+  }
+  @available(iOS, unavailable)
+  @objc override dynamic public var delegate: UIKit.UITextFieldDelegate? {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override public func validate() throws
+  @objc override dynamic public func becomeFirstResponder() -> Swift.Bool
+  @objc override dynamic public func resignFirstResponder() -> Swift.Bool
+  @objc override dynamic public func paste(_ sender: Any?)
+  @objc deinit
+}
+extension CardNumberTextField : UIKit.UITextFieldDelegate {
+  @objc dynamic public func textField(_ textField: UIKit.UITextField, shouldChangeCharactersIn range: Foundation.NSRange, replacementString string: Swift.String) -> Swift.Bool
+}
+public protocol PaymentMethod : Swift.Decodable, Swift.Encodable, Swift.Equatable {
+  static var paymentMethodTypePrefix: Swift.String { get }
+  var type: Swift.String { get }
+}
+public enum PaymentInformation : Swift.Codable, Swift.Equatable {
+  case other(type: Swift.String, parameters: [Swift.String : Any])
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (lhs: NetPaySDK.PaymentInformation, rhs: NetPaySDK.PaymentInformation) -> Swift.Bool
+}
+extension Request where T == NetPaySDK.Source {
+  public init(paymentInformation: NetPaySDK.PaymentInformation, amount: Swift.Int64, currency: NetPaySDK.Currency)
+}
+extension PaymentInformation {
+  public var sourceType: Swift.String {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(NPCardNumber) final public class CardNumber : ObjectiveC.NSObject {
+  @objc public static func normalize(_ pan: Swift.String) -> Swift.String
+  public static func brand(of pan: Swift.String) -> NetPaySDK.CardBrand?
+  @objc(brandForPan:) public static func __brand(_ pan: Swift.String) -> Swift.Int
+  @objc public static func format(_ pan: Swift.String) -> Swift.String
+  @objc public static func luhn(_ pan: Swift.String) -> Swift.Bool
+  @objc public static func validate(_ pan: Swift.String) -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(NPCardBrand) public enum CardBrand : Swift.Int, Swift.CustomStringConvertible, Swift.Codable {
+  case visa
+  case masterCard
+  case jcb
+  case amex
+  case diners
+  case laser
+  case maestro
+  case discover
+  public static let all: [NetPaySDK.CardBrand]
+  public var pattern: Swift.String {
+    get
+  }
+  public var validLengths: Swift.ClosedRange<Swift.Int> {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(NPCardBrandHelper) final public class __NPCardBrand : ObjectiveC.NSObject {
+  @objc(patternForBrand:) public static func __patternForBrand(brand: NetPaySDK.CardBrand) -> Swift.String
+  @objc(validLengthsForBrand:) public static func __validLengthsForBrand(brand: NetPaySDK.CardBrand) -> Foundation.NSRange
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension NetPaySDK.ErrorUserInfoKey : Swift.Equatable {}
+extension NetPaySDK.ErrorUserInfoKey : Swift.Hashable {}
+extension NetPaySDK.ErrorUserInfoKey : Swift.RawRepresentable {}
+extension NetPaySDK.NetPayTextFieldValidationError : Swift.Equatable {}
+extension NetPaySDK.NetPayTextFieldValidationError : Swift.Hashable {}
+extension NetPaySDK.CardBrand : Swift.Equatable {}
+extension NetPaySDK.CardBrand : Swift.Hashable {}
+extension NetPaySDK.CardBrand : Swift.RawRepresentable {}

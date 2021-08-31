@@ -1,0 +1,12 @@
+//
+//  NetPaySDKArxan.xcconfig
+//  NetPaySDK
+//
+//  Created by Felipe Castillo on 11/09/20.
+//  Copyright © 2020 NetPay. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "NetPaySDK.xcconfig"

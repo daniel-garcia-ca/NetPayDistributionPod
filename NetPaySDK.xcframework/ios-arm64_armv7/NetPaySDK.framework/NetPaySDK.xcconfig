@@ -1,0 +1,17 @@
+//
+//  NetPaySDK.xcconfig
+//  NetPaySDK
+//
+//  Created by Felipe Castillo on 11/09/20.
+//  Copyright © 2020 NetPay. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+//Minimal Configuration
+
+OTHER_LDFLAGS         = -ObjC -lz;
+CLANG_ENABLE_MODULES  = YES;
+CLANG_ENABLE_OBJC_ARC = YES;
+ENABLE_BITCODE        = NO

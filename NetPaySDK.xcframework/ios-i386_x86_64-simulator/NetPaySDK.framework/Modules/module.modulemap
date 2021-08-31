@@ -1,0 +1,11 @@
+framework module NetPaySDK {
+  umbrella header "NetPaySDK.h"
+
+  export *
+  module * { export * }
+}
+
+module NetPaySDK.Swift {
+    header "NetPaySDK-Swift.h"
+    requires objc
+}

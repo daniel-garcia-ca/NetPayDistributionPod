@@ -1,0 +1,96 @@
+
+/* Class = "UILabel"; text = "-"; ObjectID = "134-RW-VCo"; */
+"134-RW-VCo.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "3TR-eT-NNR"; */
+"3TR-eT-NNR.text" = "-";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "4KR-9k-5qs"; */
+"4KR-9k-5qs.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Pago en efectivo"; ObjectID = "5nI-An-cjo"; */
+"5nI-An-cjo.title" = "Pago en efectivo";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "7Ox-gC-WRb"; */
+"7Ox-gC-WRb.text" = "-";
+
+/* Class = "UILabel"; text = "PayNow"; ObjectID = "8kj-Ed-2eS"; */
+"8kj-Ed-2eS.text" = "PayNow";
+
+/* Class = "UILabel"; text = "Bangkok Bank"; ObjectID = "8lH-Rp-Dhb"; */
+"8lH-Rp-Dhb.text" = "Bangkok Bank";
+
+/* Class = "UILabel"; text = "Pay-easy"; ObjectID = "A0v-NW-KLo"; */
+"A0v-NW-KLo.text" = "Pay-easy";
+
+/* Class = "UILabel"; text = "Número de la tarjeta"; ObjectID = "CKR-Pl-Ix5"; */
+"CKR-Pl-Ix5.text" = "Número de la tarjeta";
+
+/* Class = "UILabel"; text = "PromptPay"; ObjectID = "JmT-Us-3lW"; */
+"JmT-Us-3lW.text" = "PromptPay";
+
+/* Class = "UILabel"; text = "Tesco Lotus"; ObjectID = "LpC-UH-uPc"; */
+"LpC-UH-uPc.text" = "Tesco Lotus";
+
+/* Class = "UITextField"; placeholder = "MM/YY"; ObjectID = "Par-EA-T3D"; */
+"Par-EA-T3D.placeholder" = "MM/YY";
+
+/* Class = "UILabel"; text = "Krungsri"; ObjectID = "V59-D4-sqA"; */
+"V59-D4-sqA.text" = "Krungsri";
+
+/* Class = "UILabel"; text = "Pago con tarjeta de crédito o débito"; ObjectID = "WSh-Xk-FbG"; */
+"WSh-Xk-FbG.text" = "Pago con tarjeta de crédito o débito";
+
+/* Class = "UINavigationItem"; title = "Authorizing Payment"; ObjectID = "YAC-7f-Gdj"; */
+"YAC-7f-Gdj.title" = "Authorizing Payment";
+
+/* Class = "UIButton"; normalTitle = "Pagar"; ObjectID = "ZPa-NN-y1M"; */
+"ZPa-NN-y1M.normalTitle" = "Pagar";
+
+/* Class = "UILabel"; text = "Nombre en la tarjeta"; ObjectID = "bEE-yU-zna"; */
+"bEE-yU-zna.text" = "Nombre en la tarjeta";
+
+/* Class = "UILabel"; text = "Net Bank"; ObjectID = "cSc-cs-8vb"; */
+"cSc-cs-8vb.text" = "Net Bank";
+
+/* Class = "UILabel"; text = "Krungsri First Choice"; ObjectID = "ccD-Ly-DnI"; */
+"ccD-Ly-DnI.text" = "Krungsri First Choice";
+
+/* Class = "UILabel"; text = "KTC"; ObjectID = "d1t-A5-fA9"; */
+"d1t-A5-fA9.text" = "KTC";
+
+/* Class = "UILabel"; text = "TrueMoney Wallet"; ObjectID = "ewt-LA-vRb"; */
+"ewt-LA-vRb.text" = "TrueMoney Wallet";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "hNq-jM-xs4"; */
+"hNq-jM-xs4.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Pago con tarjeta"; ObjectID = "jOQ-fG-jaE"; */
+"jOQ-fG-jaE.title" = "Pago con tarjeta";
+
+/* Class = "UINavigationItem"; title = "Selecciona"; ObjectID = "opb-54-CDJ"; */
+"opb-54-CDJ.title" = "Selecciona";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "ubw-ZT-CVl"; */
+"ubw-ZT-CVl.text" = "-";
+
+/* Class = "UILabel"; text = "Fecha de expiración"; ObjectID = "uuR-9N-gze"; */
+"uuR-9N-gze.text" = "Fecha de expiración";
+
+/* Class = "UILabel"; text = "CVV"; ObjectID = "vMc-kJ-Ncs"; */
+"vMc-kJ-Ncs.text" = "CVV";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "ws5-ue-ec8"; */
+"ws5-ue-ec8.text" = "-";
+
+/* Class = "UILabel"; text = "Kasikorn"; ObjectID = "yHg-il-ZhG"; */
+"yHg-il-ZhG.text" = "Kasikorn";
+
+/* Class = "UILabel"; text = "3-4 digit number on the back of your card"; ObjectID = "yfq-Iv-IBe"; */
+"yfq-Iv-IBe.text" = "3-4 digit number on the back of your card";
+
+/* Class = "UILabel"; text = "Pago en efectivo"; ObjectID = "zli-mo-sUQ"; */
+"zli-mo-sUQ.text" = "Pago en efectivo";
+
+/* Class = "UILabel"; text = "Pay with Citi Rewards Points"; ObjectID = "zmw-2Y-WAX"; */
+"zmw-2Y-WAX.text" = "Pay with Citi Rewards Points";
